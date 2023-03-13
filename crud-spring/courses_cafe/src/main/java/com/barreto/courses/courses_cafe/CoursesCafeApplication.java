@@ -5,6 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import com.barreto.courses.courses_cafe.enums.Category;
 import com.barreto.courses.courses_cafe.model.Course;
 import com.barreto.courses.courses_cafe.repository.CourseRepository;
 
@@ -23,7 +24,7 @@ public class CoursesCafeApplication {
 
 			Course c = new Course();
 			c.setName("Angular");
-			c.setCategory("Front-end");
+			c.setCategory(Category.FRONTEND);
 
 			courseRepository.save(c);
 		};

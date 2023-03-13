@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.barreto.courses.courses_cafe.dto.CourseDTO;
 import com.barreto.courses.courses_cafe.dto.mapper.CourseMapper;
+import com.barreto.courses.courses_cafe.enums.Category;
 import com.barreto.courses.courses_cafe.exception.RecordNotFoundException;
 import com.barreto.courses.courses_cafe.repository.CourseRepository;
 
@@ -49,7 +50,7 @@ public class CourseService {
         return courseRepository.findById(id)
                 .map(recordFound -> {
                     recordFound.setName(course.name());
-                    recordFound.setCategory(course.category());
+                    recordFound.setCategory(Category.FRONTEND);
                     return courseMapper.toDTO( courseRepository.save(recordFound));
                 }).orElseThrow(( ) -> new RecordNotFoundException(id));
     }
